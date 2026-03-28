@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Workshop — Val d'Europe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    :root {
+      --bg: #080808;
+      --surface: #111111;
+      --primary: #7C3AED;
+      --primary-dim: rgba(124,58,237,0.18);
+      --primary-glow: rgba(124,58,237,0.35);
+      --text: #F0EEFF;
+      --muted: #9080BB;
+      --border: rgba(255,255,255,0.08);
+      --radius: 14px;
+      --font: 'Inter', system-ui, sans-serif;
+    }
+
+    /* === NAV === */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 6%;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-weight: 800; font-size: 1rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #fff 0%, #C4B5FD 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-cta {
+      background: var(--primary); color: #fff;
+      padding: 0.6rem 1.4rem; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: 0.875rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 20px var(--primary-glow); }
+
+    /* === HERO === */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 9rem 6% 6rem;
+      position: relative; overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 35%, var(--primary-dim), transparent 65%),
+        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(124,58,237,0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #C4B5FD; border: 1px solid rgba(124,58,237,0.4);
+      background: rgba(124,58,237,0.1);
+      padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
+    }
+    .badge-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: #A78BFA;
+      box-shadow: 0 0 6px #A78BFA;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    h1 {
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 900; line-height: 1.0;
+      letter-spacing: -0.04em;
+      max-width: 13ch;
+      opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+    }
+    h1 .accent {
+      background: linear-gradient(135deg, #A78BFA 0%, #7C3AED 50%, #C4B5FD 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.15rem; color: var(--muted);
+      max-width: 46ch; margin-top: 1.75rem;
+      line-height: 1.75;
+      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 2rem;
+      margin-top: 2rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; color: var(--muted);
+    }
+    .meta-item span:first-child { font-size: 1.1rem; }
+    .hero-cta-group {
+      display: flex; align-items: center; gap: 1rem;
+      margin-top: 2.75rem; flex-wrap: wrap; justify-content: center;
+      opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--primary); color: #fff;
+      padding: 1rem 2.5rem; border-radius: 999px;
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero-cta:hover { transform: scale(1.04); box-shadow: 0 0 40px var(--primary-glow); }
+    .hero-secondary {
+      display: inline-block;
+      color: var(--muted);
+      padding: 1rem 1.5rem;
+      text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .hero-secondary:hover { color: var(--text); }
+    .spots-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);
+      color: #FCA5A5; font-size: 0.78rem; font-weight: 600;
+      padding: 0.35rem 0.9rem; border-radius: 999px;
+      letter-spacing: 0.04em;
+      opacity: 0; animation: fadeUp 0.7s 0.7s forwards;
+      margin-top: 1.5rem;
+    }
+    .spots-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #F87171; box-shadow: 0 0 5px #F87171;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* === DETAILS === */
+    #details {
+      padding: 7rem 6%;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .section-eyebrow {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #A78BFA; margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 3rem;
+      max-width: 20ch;
+    }
+    .cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(124,58,237,0.3);
+      box-shadow: 0 8px 32px rgba(124,58,237,0.1);
+    }
+    .card-icon { font-size: 1.8rem; margin-bottom: 1.1rem; }
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
+    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* === AGENDA === */
+    #agenda {
+      padding: 5rem 6%;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .agenda-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+      margin-top: 3rem;
+    }
+    .agenda-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .agenda-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s;
+    }
+    .agenda-item:hover { border-color: rgba(124,58,237,0.3); }
+    .agenda-num {
+      font-size: 0.7rem; font-weight: 700;
+      color: var(--primary); background: var(--primary-dim);
+      width: 24px; height: 24px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 0.1rem;
+    }
+    .agenda-text h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .agenda-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .agenda-visual {
+      background: linear-gradient(135deg, #111 0%, rgba(124,58,237,0.15) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .tool-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+    .tool-emoji { font-size: 1.5rem; width: 36px; text-align: center; }
+    .tool-name { font-size: 0.95rem; font-weight: 600; }
+    .tool-desc { font-size: 0.8rem; color: var(--muted); }
+    .tool-badge {
+      margin-left: auto;
+      font-size: 0.7rem; font-weight: 600;
+      background: var(--primary-dim); color: #C4B5FD;
+      padding: 0.25rem 0.65rem; border-radius: 999px;
+    }
+
+    /* === CTA BAND === */
+    #cta {
+      padding: 7rem 6%; text-align: center;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, var(--primary-dim), transparent 70%);
+      pointer-events: none;
+    }
+    #cta h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900;
+      letter-spacing: -0.03em; margin-bottom: 1rem;
+      position: relative;
+    }
+    #cta p { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.75rem; position: relative; }
+    .cta-btn {
+      display: inline-block; position: relative;
+      background: var(--primary); color: #fff;
+      padding: 1.1rem 3rem; border-radius: 999px;
+      text-decoration: none; font-weight: 700; font-size: 1.05rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover { transform: scale(1.04); box-shadow: 0 0 50px var(--primary-glow); }
+    .cta-note {
+      display: block; margin-top: 1.25rem;
+      font-size: 0.85rem; color: var(--muted); position: relative;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 2.5rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem; color: var(--muted);
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+
+    /* === ANIMATIONS === */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      .cards { grid-template-columns: 1fr; }
+      .agenda-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .agenda-visual { order: -1; }
+      footer { flex-direction: column; text-align: center; }
+      .hero-meta { gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-brand">AI Workshop ✦ Val d'Europe</span>
+    <a href="#cta" class="nav-cta">Réserver ma place</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <span class="hero-badge">
+      <span class="badge-dot"></span>
+      Val d'Europe · Session #1 · 10 places
+    </span>
+    <h1>Maîtrise l'<span class="accent">IA</span> en une après-midi.</h1>
+    <p class="hero-sub">
+      Un atelier pratique pour apprendre à utiliser ChatGPT, Claude et les outils IA du quotidien — sans jargon, sans prérequis, juste des résultats concrets.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-item"><span>📍</span><span>Val d'Europe</span></div>
+      <div class="meta-item"><span>👥</span><span>10 personnes max</span></div>
+      <div class="meta-item"><span>🎯</span><span>Débutants bienvenus</span></div>
+    </div>
+    <div class="hero-cta-group">
+      <a href="#cta" class="hero-cta">Je veux ma place →</a>
+      <a href="#details" class="hero-secondary">En savoir plus ↓</a>
+    </div>
+    <span class="spots-pill">
+      <span class="spots-dot"></span>
+      🔥 Seulement 10 spots disponibles
+    </span>
+  </section>
+
+  <!-- DETAILS -->
+  <section id="details">
+    <p class="section-eyebrow">Ce que tu vas apprendre</p>
+    <h2 class="section-title">Concret, pratique, actionnable.</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Parler à l'IA comme un pro</h3>
+        <p>Apprends à formuler tes demandes pour obtenir exactement ce que tu veux — plus jamais de réponses génériques ou inutiles.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Gagner des heures chaque semaine</h3>
+        <p>Emails, résumés, recherches, idées, code… découvre comment déléguer à l'IA les tâches qui te prennent du temps.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🛠️</div>
+        <h3>Les bons outils, les bons usages</h3>
+        <p>ChatGPT, Claude, les nouveaux outils IA — on fait le tri ensemble et tu repars avec une vraie boîte à outils personnelle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDA -->
+  <section id="agenda">
+    <p class="section-eyebrow">Programme de l'atelier</p>
+    <h2 class="section-title">Une session dense, sans temps mort.</h2>
+    <div class="agenda-grid">
+      <ul class="agenda-list">
+        <li class="agenda-item">
+          <div class="agenda-num">1</div>
+          <div class="agenda-text">
+            <h4>Introduction à l'IA générative</h4>
+            <p>Comment ça marche vraiment, sans bullshit. Ce que ça peut faire — et ce que ça ne peut pas.</p>
+          </div>
+        </li>
+        <li class="agenda-item">
+          <div class="agenda-num">2</div>
+          <div class="agenda-text">
+            <h4>Maîtriser le prompting</h4>
+            <p>Les techniques qui changent tout : rôle, contexte, format, itération. On s'entraîne ensemble.</p>
+          </div>
+        </li>
+        <li class="agenda-item">
+          <div class="agenda-num">3</div>
+          <div class="agenda-text">
+            <h4>Cas pratiques sur mesure</h4>
+            <p>Tu arrives avec tes vraies tâches du quotidien. On les automatise ou on les accélère ensemble.</p>
+          </div>
+        </li>
+        <li class="agenda-item">
+          <div class="agenda-num">4</div>
+          <div class="agenda-text">
+            <h4>Tour des meilleurs outils IA</h4>
+            <p>ChatGPT, Claude, Perplexity, Claude Code… on fait le point sur ce qui vaut vraiment le coup en 2025.</p>
+          </div>
+        </li>
+        <li class="agenda-item">
+          <div class="agenda-num">5</div>
+          <div class="agenda-text">
+            <h4>Q&A & plan d'action perso</h4>
+            <p>Tu repars avec une liste claire de ce que tu vas appliquer dès demain.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="agenda-visual">
+        <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#A78BFA;margin-bottom:0.5rem">Les outils au programme</p>
+        <div class="tool-row">
+          <div class="tool-emoji">🤖</div>
+          <div>
+            <div class="tool-name">ChatGPT</div>
+            <div class="tool-desc">GPT-4o · le plus connu</div>
+          </div>
+          <span class="tool-badge">Essentiel</span>
+        </div>
+        <div class="tool-row">
+          <div class="tool-emoji">🔮</div>
+          <div>
+            <div class="tool-name">Claude</div>
+            <div class="tool-desc">Anthropic · le plus précis</div>
+          </div>
+          <span class="tool-badge">Favori</span>
+        </div>
+        <div class="tool-row">
+          <div class="tool-emoji">🔍</div>
+          <div>
+            <div class="tool-name">Perplexity</div>
+            <div class="tool-desc">Recherche IA en temps réel</div>
+          </div>
+          <span class="tool-badge">Pratique</span>
+        </div>
+        <div class="tool-row">
+          <div class="tool-emoji">💻</div>
+          <div>
+            <div class="tool-name">Claude Code</div>
+            <div class="tool-desc">IA pour coder sans coder</div>
+          </div>
+          <span class="tool-badge">Bonus</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section id="cta">
+    <h2>10 places. Pas une de plus.</h2>
+    <p>Format intentionnellement petit pour que tout le monde reparte avec de vraies réponses à ses vraies questions.</p>
+    <a href="mailto:notleopold@pm.me?subject=Inscription%20AI%20Workshop%20Val%20d'Europe&body=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20l'atelier%20IA%20%C3%A0%20Val%20d'Europe.%20Pouvez-vous%20m'envoyer%20les%20infos%20%3F" class="cta-btn">
+      Réserver ma place →
+    </a>
+    <span class="cta-note">📩 Envoie un email pour t'inscrire — réponse sous 24h</span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">AI Workshop · Val d'Europe</span>
+    <span>L'IA, enfin expliquée simplement.</span>
+    <span>© 2026</span>
+  </footer>
+
+</body>
+</html>
