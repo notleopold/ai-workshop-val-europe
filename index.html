@@ -10,34 +10,21 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
 
     :root {
-      --bg: #080808;
-      --surface: #111111;
-      --primary: #10B981;
-      --primary-dim: rgba(16,185,129,0.15);
-      --primary-glow: rgba(16,185,129,0.35);
-      --text: #ECFDF5;
-      --muted: #6B9E8A;
-      --border: rgba(255,255,255,0.08);
-      --radius: 14px;
-      --font: 'Inter', system-ui, sans-serif;
+      --bg: #080808; --surface: #111111;
+      --primary: #10B981; --primary-dim: rgba(16,185,129,0.15); --primary-glow: rgba(16,185,129,0.35);
+      --text: #ECFDF5; --muted: #6B9E8A; --border: rgba(255,255,255,0.08);
+      --radius: 14px; --font: 'Inter', system-ui, sans-serif;
     }
 
-    /* === NAV === */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 5%;
-      background: rgba(8,8,8,0.88);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      padding: 1rem 5%; background: rgba(8,8,8,0.88);
+      backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
     }
     .nav-brand {
       font-weight: 800; font-size: 0.95rem; letter-spacing: -0.02em;
@@ -45,47 +32,40 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .nav-cta {
-      background: var(--primary); color: #fff;
-      padding: 0.55rem 1.2rem; border-radius: 999px;
-      font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
+      background: var(--primary); color: #fff; padding: 0.55rem 1.2rem;
+      border-radius: 999px; font-weight: 600; font-size: 0.85rem;
+      border: none; cursor: pointer; white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 20px var(--primary-glow); }
 
-    /* === HERO === */
+    /* HERO */
     #hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-      padding: 8rem 5% 5rem;
-      position: relative; overflow: hidden;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 8rem 5% 5rem; position: relative; overflow: hidden;
     }
     #hero::before {
       content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 55% at 50% 35%, var(--primary-dim), transparent 65%),
-        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(16,185,129,0.07), transparent 60%);
+      background: radial-gradient(ellipse 70% 55% at 50% 35%, var(--primary-dim), transparent 65%),
+                  radial-gradient(ellipse 40% 30% at 20% 80%, rgba(16,185,129,0.07), transparent 60%);
       pointer-events: none;
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #6EE7B7; border: 1px solid rgba(16,185,129,0.4);
-      background: rgba(16,185,129,0.08);
+      color: #6EE7B7; border: 1px solid rgba(16,185,129,0.4); background: rgba(16,185,129,0.08);
       padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.75rem;
       opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
     }
     .badge-dot {
       width: 6px; height: 6px; border-radius: 50%;
-      background: #34D399; box-shadow: 0 0 6px #34D399;
-      animation: pulse 2s infinite;
+      background: #34D399; box-shadow: 0 0 6px #34D399; animation: pulse 2s infinite;
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     h1 {
-      font-size: clamp(2.4rem, 7vw, 6.5rem);
-      font-weight: 900; line-height: 1.0; letter-spacing: -0.04em;
-      max-width: 13ch;
+      font-size: clamp(2.4rem, 7vw, 6.5rem); font-weight: 900;
+      line-height: 1.0; letter-spacing: -0.04em; max-width: 13ch;
       opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
     }
     h1 .accent {
@@ -93,8 +73,8 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-      color: var(--muted); max-width: 44ch; margin-top: 1.5rem; line-height: 1.75;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem); color: var(--muted);
+      max-width: 46ch; margin-top: 1.5rem; line-height: 1.75;
       opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
     }
     .hero-meta {
@@ -104,23 +84,27 @@
     }
     .meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--muted); }
     .meta-item span:first-child { font-size: 1rem; }
+    .price-pill {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.35);
+      color: #6EE7B7; font-size: 0.85rem; font-weight: 700;
+      padding: 0.3rem 0.9rem; border-radius: 999px;
+    }
     .hero-cta-group {
       display: flex; align-items: center; gap: 0.75rem;
       margin-top: 2.25rem; flex-wrap: wrap; justify-content: center;
       opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
     }
     .hero-cta {
-      display: inline-block;
-      background: var(--primary); color: #fff;
+      display: inline-block; background: var(--primary); color: #fff;
       padding: 0.9rem 2.2rem; border-radius: 999px;
       font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .hero-cta:hover { transform: scale(1.04); box-shadow: 0 0 40px var(--primary-glow); }
     .hero-secondary {
-      display: inline-block; color: var(--muted);
-      padding: 0.9rem 1.25rem; text-decoration: none; font-weight: 500; font-size: 0.9rem;
-      transition: color 0.2s;
+      display: inline-block; color: var(--muted); padding: 0.9rem 1.25rem;
+      text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: color 0.2s;
     }
     .hero-secondary:hover { color: var(--text); }
     .spots-pill {
@@ -132,25 +116,21 @@
     }
     .spots-dot {
       width: 5px; height: 5px; border-radius: 50%;
-      background: #F87171; box-shadow: 0 0 5px #F87171;
-      animation: pulse 1.5s infinite;
+      background: #F87171; box-shadow: 0 0 5px #F87171; animation: pulse 1.5s infinite;
     }
 
-    /* === SPEAKER === */
+    /* SPEAKER */
     #speaker {
-      padding: 5rem 5%;
-      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 5%; max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 380px 1fr; gap: 5rem; align-items: center;
     }
     .speaker-photo-wrap { position: relative; }
     .speaker-photo-wrap::before {
       content: ''; position: absolute; inset: -2px; border-radius: 24px;
-      background: linear-gradient(135deg, rgba(16,185,129,0.5), transparent 60%);
-      z-index: 0;
+      background: linear-gradient(135deg, rgba(16,185,129,0.5), transparent 60%); z-index: 0;
     }
     .speaker-photo {
-      width: 100%; aspect-ratio: 3/4;
-      object-fit: cover; object-position: center top;
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top;
       border-radius: 22px; display: block; position: relative; z-index: 1;
     }
     .speaker-badge {
@@ -177,13 +157,11 @@
     .speaker-content p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.9rem; }
     .speaker-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
     .speaker-tag {
-      font-size: 0.78rem; font-weight: 600;
-      background: rgba(16,185,129,0.1); color: #6EE7B7;
-      border: 1px solid rgba(16,185,129,0.25);
-      padding: 0.3rem 0.85rem; border-radius: 999px;
+      font-size: 0.78rem; font-weight: 600; background: rgba(16,185,129,0.1); color: #6EE7B7;
+      border: 1px solid rgba(16,185,129,0.25); padding: 0.3rem 0.85rem; border-radius: 999px;
     }
 
-    /* === DETAILS === */
+    /* DETAILS */
     #details { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
     .section-title {
       font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800;
@@ -200,14 +178,14 @@
     .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
     .card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
 
-    /* === AGENDA === */
+    /* AGENDA */
     #agenda { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
     .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
     .agenda-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
     .agenda-item {
-      display: flex; align-items: flex-start; gap: 0.9rem;
-      padding: 1.1rem 1.25rem; background: var(--surface);
-      border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s;
+      display: flex; align-items: flex-start; gap: 0.9rem; padding: 1.1rem 1.25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); transition: border-color 0.2s;
     }
     .agenda-item:hover { border-color: rgba(16,185,129,0.3); }
     .agenda-num {
@@ -235,7 +213,7 @@
       padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap;
     }
 
-    /* === CTA BAND === */
+    /* CTA BAND */
     #cta {
       padding: 6rem 5%; text-align: center; background: var(--surface);
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -246,21 +224,23 @@
       background: radial-gradient(ellipse 60% 70% at 50% 50%, var(--primary-dim), transparent 70%);
       pointer-events: none;
     }
-    #cta h2 {
-      font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 900;
-      letter-spacing: -0.03em; margin-bottom: 1rem; position: relative;
-    }
+    #cta h2 { font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem; position: relative; }
     #cta > p { font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--muted); margin-bottom: 2.25rem; position: relative; }
-    .cta-btn {
+    .cta-price {
       display: inline-block; position: relative;
-      background: var(--primary); color: #fff;
+      font-size: 1.1rem; font-weight: 800; color: #6EE7B7;
+      background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3);
+      padding: 0.5rem 1.5rem; border-radius: 999px; margin-bottom: 1.75rem;
+    }
+    .cta-btn {
+      display: inline-block; position: relative; background: var(--primary); color: #fff;
       padding: 1rem 2.75rem; border-radius: 999px;
       font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .cta-btn:hover { transform: scale(1.04); box-shadow: 0 0 50px var(--primary-glow); }
 
-    /* === FOOTER === */
+    /* FOOTER */
     footer {
       padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between;
       border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted);
@@ -268,14 +248,12 @@
     }
     .footer-brand { font-weight: 700; color: var(--text); font-size: 0.88rem; }
 
-    /* === MODAL === */
+    /* MODAL */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 999;
       background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 1rem;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s;
+      display: flex; align-items: center; justify-content: center; padding: 1rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s;
     }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal {
@@ -286,12 +264,10 @@
     }
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: none; border: none; cursor: pointer;
-      color: var(--muted); font-size: 1.2rem; line-height: 1;
+      position: absolute; top: 1rem; right: 1rem; background: none; border: none;
+      cursor: pointer; color: var(--muted); font-size: 1.2rem; line-height: 1;
       transition: color 0.2s; width: 28px; height: 28px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; border-radius: 50%;
     }
     .modal-close:hover { color: var(--text); background: rgba(255,255,255,0.06); }
     .modal-eyebrow {
@@ -300,6 +276,11 @@
     }
     .modal h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
     .modal-sub { font-size: 0.84rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .modal-price-badge {
+      display: inline-block; font-size: 0.9rem; font-weight: 700; color: #6EE7B7;
+      background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3);
+      padding: 0.3rem 1rem; border-radius: 999px; margin-bottom: 1.25rem;
+    }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.65rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.65rem; text-align: left; }
     .form-group label { font-size: 0.74rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; }
@@ -312,23 +293,18 @@
     .form-group input:focus { border-color: rgba(16,185,129,0.5); box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
     .form-group input::placeholder { color: #3a3a3a; }
     .modal-submit {
-      width: 100%; margin-top: 0.5rem;
-      background: var(--primary); color: #fff;
+      width: 100%; margin-top: 0.5rem; background: var(--primary); color: #fff;
       padding: 0.9rem; border-radius: 999px; border: none; cursor: pointer;
       font-size: 0.95rem; font-weight: 700; font-family: var(--font);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .modal-submit:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--primary-glow); }
     .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-    .modal-success { display: none; text-align: center; padding: 1rem 0; }
-    .modal-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .modal-success h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .modal-success p { font-size: 0.88rem; color: var(--muted); }
+    .modal-note { font-size: 0.76rem; color: var(--muted); margin-top: 0.9rem; }
 
-    /* === ANIMATIONS === */
     @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-    /* === RESPONSIVE — mobile-first === */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       #speaker { grid-template-columns: 1fr; gap: 2.5rem; max-width: 500px; }
       .speaker-photo { aspect-ratio: 4/3; object-position: center 15%; }
@@ -337,15 +313,15 @@
       nav { padding: 0.9rem 4%; }
       .nav-brand { font-size: 0.82rem; }
       #hero { padding: 7rem 4% 4rem; }
-      .hero-meta { gap: 0.9rem; }
-      .meta-item { font-size: 0.8rem; }
+      .hero-meta { gap: 0.75rem; }
+      .meta-item { font-size: 0.78rem; }
       #speaker, #details, #agenda, #cta, footer { padding-left: 4%; padding-right: 4%; }
       .cards { grid-template-columns: 1fr; }
       .agenda-grid { grid-template-columns: 1fr; gap: 2rem; }
       .agenda-visual { order: -1; }
       footer { flex-direction: column; text-align: center; }
       .form-row { grid-template-columns: 1fr; }
-      .modal { padding: 2rem 1.5rem; border-radius: 16px; }
+      .modal { padding: 2rem 1.25rem; border-radius: 16px; }
       .modal h3 { font-size: 1.2rem; }
       #cta { padding-top: 4rem; padding-bottom: 4rem; }
     }
@@ -357,61 +333,56 @@
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
-      <div id="modalForm">
-        <p class="modal-eyebrow">Val d'Europe · 10 places</p>
-        <h3 id="modalTitle">Je réserve ma place</h3>
-        <p class="modal-sub">On revient vers toi rapidement pour confirmer.</p>
-        <form id="regForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" name="prenom" placeholder="Marie" required autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <label for="nom">Nom</label>
-              <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
-            </div>
+      <p class="modal-eyebrow">Val d'Europe · 15 places</p>
+      <h3 id="modalTitle">Je réserve ma place</h3>
+      <p class="modal-sub">Remplis tes infos, tu seras redirigé vers le paiement sécurisé.</p>
+      <div class="modal-price-badge">💳 10 € par personne</div>
+      <form id="regForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Marie" required autocomplete="given-name">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required autocomplete="email">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
           </div>
-          <div class="form-group">
-            <label for="tel">Téléphone</label>
-            <input type="tel" id="tel" name="tel" placeholder="+33 6 12 34 56 78" required autocomplete="tel">
-          </div>
-          <button type="submit" class="modal-submit" id="submitBtn">Envoyer ma demande →</button>
-        </form>
-      </div>
-      <div class="modal-success" id="modalSuccess">
-        <div class="success-icon">✅</div>
-        <h4>Demande envoyée !</h4>
-        <p>On revient vers toi très vite. À bientôt !</p>
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="tel">Téléphone</label>
+          <input type="tel" id="tel" name="tel" placeholder="+33 6 12 34 56 78" required autocomplete="tel">
+        </div>
+        <button type="submit" class="modal-submit" id="submitBtn">Continuer vers le paiement →</button>
+        <p class="modal-note">🔒 Paiement sécurisé via Stripe</p>
+      </form>
     </div>
   </div>
 
   <!-- NAV -->
   <nav>
     <span class="nav-brand">AI Workshop ✦ Val d'Europe</span>
-    <button class="nav-cta" onclick="openModal()">Réserver ma place</button>
+    <button class="nav-cta" onclick="openModal()">Réserver · 10 €</button>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <span class="hero-badge">
       <span class="badge-dot"></span>
-      Atelier IA · Val d'Europe · 10 places
+      Atelier IA · Val d'Europe · 15 places
     </span>
     <h1>Maîtrise l'<span class="accent">IA</span> en une après-midi.</h1>
     <p class="hero-sub">
-      2 heures d'atelier en présentiel pour apprendre à utiliser Claude Code, ChatGPT et les outils IA — sans jargon, sans slides, juste des résultats concrets.
+      Que tu travailles en entreprise ou non — si tu veux utiliser l'IA dans ta vie personnelle et professionnelle, cet atelier est fait pour toi.
     </p>
     <div class="hero-meta">
       <div class="meta-item"><span>📍</span><span>Val d'Europe</span></div>
       <div class="meta-item"><span>⏱️</span><span>2 heures</span></div>
-      <div class="meta-item"><span>👥</span><span>10 personnes max</span></div>
-      <div class="meta-item"><span>🎯</span><span>Débutants bienvenus</span></div>
+      <div class="meta-item"><span>👥</span><span>15 personnes max</span></div>
+      <div class="meta-item price-pill"><span>💳</span><span>10 € / personne</span></div>
     </div>
     <div class="hero-cta-group">
       <button class="hero-cta" onclick="openModal()">Je veux ma place →</button>
@@ -419,7 +390,7 @@
     </div>
     <span class="spots-pill">
       <span class="spots-dot"></span>
-      🔥 Seulement 10 spots disponibles
+      🔥 Seulement 15 spots disponibles
     </span>
   </section>
 
@@ -442,7 +413,7 @@
         Léopold dirige une agence d'intégration IA. Son métier : aider des entrepreneurs, des agences de services et des coachs en ligne à intégrer Claude Code, ChatGPT et les outils IA dans leurs process — et à gagner du temps dès la première semaine.
       </p>
       <p>
-        Cet atelier, c'est exactement ce qu'il fait avec ses clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets.
+        Cet atelier, c'est exactement ce qu'il fait avec ses clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets — que ce soit pour ta vie perso ou ton boulot.
       </p>
       <div class="speaker-tags">
         <span class="speaker-tag">Claude Code</span>
@@ -462,17 +433,17 @@
       <div class="card">
         <div class="card-icon">💬</div>
         <h3>Parler à l'IA comme un pro</h3>
-        <p>Apprends à formuler tes demandes pour obtenir exactement ce que tu veux — plus jamais de réponses génériques ou inutiles.</p>
+        <p>Apprends à formuler tes demandes pour obtenir exactement ce que tu veux — dans ta vie perso comme au boulot. Plus jamais de réponses génériques.</p>
       </div>
       <div class="card">
         <div class="card-icon">⚡</div>
         <h3>Gagner des heures chaque semaine</h3>
-        <p>Emails, résumés, recherches, idées, code… découvre comment déléguer à l'IA les tâches qui te prennent du temps.</p>
+        <p>Emails, résumés, idées, planification, recherches… découvre comment déléguer à l'IA les tâches qui te prennent du temps, au quotidien.</p>
       </div>
       <div class="card">
         <div class="card-icon">🛠️</div>
         <h3>Les bons outils, les bons usages</h3>
-        <p>Claude Code et ChatGPT — on va à l'essentiel et tu repars avec une boîte à outils adaptée à ton activité.</p>
+        <p>Claude Code et ChatGPT — on va à l'essentiel et tu repars avec une boîte à outils adaptée à ta situation, perso ou pro.</p>
       </div>
     </div>
   </section>
@@ -487,7 +458,7 @@
           <div class="agenda-num">1</div>
           <div class="agenda-text">
             <h4>Introduction à l'IA générative</h4>
-            <p>Comment ça marche vraiment, sans bullshit. Ce que ça peut faire — et ce que ça ne peut pas.</p>
+            <p>Comment ça marche vraiment, sans bullshit. Ce que ça peut faire dans ta vie — et ce que ça ne peut pas.</p>
           </div>
         </li>
         <li class="agenda-item">
@@ -501,7 +472,7 @@
           <div class="agenda-num">3</div>
           <div class="agenda-text">
             <h4>Cas pratiques sur mesure</h4>
-            <p>Tu arrives avec tes vraies tâches du quotidien. On les automatise ou on les accélère ensemble.</p>
+            <p>Tu arrives avec tes vraies tâches — perso ou pro. On les automatise ou on les accélère ensemble.</p>
           </div>
         </li>
         <li class="agenda-item">
@@ -519,7 +490,6 @@
           </div>
         </li>
       </ul>
-
       <div class="agenda-visual">
         <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#34D399;margin-bottom:0.25rem">Les outils au programme</p>
         <div class="tool-row">
@@ -544,8 +514,9 @@
 
   <!-- CTA BAND -->
   <section id="cta">
-    <h2>10 places. Pas une de plus.</h2>
+    <h2>15 places. Pas une de plus.</h2>
     <p>Format intentionnellement petit pour que tout le monde reparte avec de vraies réponses à ses vraies questions.</p>
+    <div class="cta-price">10 € par personne</div><br>
     <button class="cta-btn" onclick="openModal()">Réserver ma place →</button>
   </section>
 
@@ -557,6 +528,9 @@
   </footer>
 
   <script>
+    var STRIPE_URL = 'https://buy.stripe.com/6oU7sM3vVcgGbFBbn5gbm0z';
+    var WEBHOOK_URL = 'https://hook.eu2.make.com/ijcxq4ot19zzaux5gtk3f387ey1qpqnq';
+
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -584,21 +558,15 @@
 
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
-      btn.textContent = 'Envoi en cours…';
+      btn.textContent = 'Enregistrement…';
 
-      fetch('https://hook.eu2.make.com/ijcxq4ot19zzaux5gtk3f387ey1qpqnq', {
+      fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prenom: prenom, nom: nom, email: email, telephone: tel })
       })
-      .then(function() {
-        document.getElementById('modalForm').style.display = 'none';
-        document.getElementById('modalSuccess').style.display = 'block';
-      })
-      .catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Envoyer ma demande →';
-        alert('Une erreur est survenue. Réessaie dans quelques instants.');
+      .finally(function() {
+        window.location.href = STRIPE_URL + '?prefilled_email=' + encodeURIComponent(email);
       });
     });
   </script>

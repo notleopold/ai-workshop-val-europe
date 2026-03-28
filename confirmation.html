@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place réservée — AI Workshop Val d'Europe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #080808; color: #ECFDF5;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 2rem; text-align: center; position: relative; overflow: hidden;
+    }
+    body::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(16,185,129,0.15), transparent 65%);
+      pointer-events: none;
+    }
+
+    .card {
+      background: #111; border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 24px; padding: 3rem 2.5rem; max-width: 520px; width: 100%;
+      position: relative;
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .check {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(16,185,129,0.15); border: 2px solid rgba(16,185,129,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin: 0 auto 1.75rem;
+    }
+    .eyebrow {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #34D399; margin-bottom: 0.6rem;
+    }
+    h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+    .subtitle { font-size: 0.95rem; color: #6B9E8A; line-height: 1.7; margin-bottom: 2rem; }
+
+    .details-box {
+      background: rgba(16,185,129,0.06); border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem; text-align: left;
+    }
+    .details-title {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #34D399; margin-bottom: 1rem;
+    }
+    .detail-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .detail-icon { font-size: 1.1rem; width: 24px; text-align: center; flex-shrink: 0; }
+    .detail-label { font-size: 0.78rem; color: #6B9E8A; margin-bottom: 0.1rem; }
+    .detail-value { font-size: 0.9rem; font-weight: 600; color: #ECFDF5; }
+    .detail-placeholder { font-size: 0.9rem; font-weight: 500; color: #4a7a6a; font-style: italic; }
+
+    .email-note {
+      font-size: 0.84rem; color: #6B9E8A; line-height: 1.6;
+      background: rgba(255,255,255,0.03); border-radius: 10px; padding: 1rem;
+      margin-bottom: 1.75rem;
+    }
+    .email-note strong { color: #ECFDF5; }
+
+    .back-btn {
+      display: inline-block; color: #6B9E8A;
+      text-decoration: none; font-size: 0.88rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .back-btn:hover { color: #ECFDF5; }
+
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    @media (max-width: 480px) {
+      .card { padding: 2rem 1.5rem; border-radius: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="check">✅</div>
+    <p class="eyebrow">Paiement confirmé</p>
+    <h1>Ta place est réservée !</h1>
+    <p class="subtitle">
+      Bienvenue dans l'aventure. Tu fais partie des 15 personnes qui vont découvrir comment utiliser l'IA dans leur vie personnelle et professionnelle.
+    </p>
+
+    <div class="details-box">
+      <p class="details-title">Détails de l'événement</p>
+      <div class="detail-row">
+        <span class="detail-icon">📅</span>
+        <div>
+          <div class="detail-label">Date</div>
+          <div class="detail-placeholder">À venir — tu recevras un email</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <span class="detail-icon">🕐</span>
+        <div>
+          <div class="detail-label">Heure</div>
+          <div class="detail-placeholder">À venir — tu recevras un email</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <span class="detail-icon">📍</span>
+        <div>
+          <div class="detail-label">Lieu</div>
+          <div class="detail-value">Val d'Europe</div>
+        </div>
+      </div>
+      <div class="detail-row">
+        <span class="detail-icon">⏱️</span>
+        <div>
+          <div class="detail-label">Durée</div>
+          <div class="detail-value">2 heures</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-note">
+      📩 <strong>Un email de confirmation</strong> avec tous les détails (date, heure, adresse exacte) t'a été envoyé. Vérifie tes spams si tu ne le vois pas.
+    </div>
+
+    <a href="/" class="back-btn">← Retour à la page de l'atelier</a>
+  </div>
+</body>
+</html>
