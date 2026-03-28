@@ -34,22 +34,21 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.1rem 6%;
-      background: rgba(8,8,8,0.85);
+      padding: 1rem 5%;
+      background: rgba(8,8,8,0.88);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
     .nav-brand {
-      font-weight: 800; font-size: 1rem; letter-spacing: -0.02em;
+      font-weight: 800; font-size: 0.95rem; letter-spacing: -0.02em;
       background: linear-gradient(135deg, #fff 0%, #6EE7B7 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .nav-cta {
       background: var(--primary); color: #fff;
-      padding: 0.6rem 1.4rem; border-radius: 999px;
-      text-decoration: none; font-weight: 600; font-size: 0.875rem;
-      border: none; cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 0.55rem 1.2rem; border-radius: 999px;
+      font-weight: 600; font-size: 0.85rem; border: none; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
     }
     .nav-cta:hover { transform: scale(1.04); box-shadow: 0 0 20px var(--primary-glow); }
 
@@ -59,12 +58,11 @@
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       text-align: center;
-      padding: 9rem 6% 6rem;
+      padding: 8rem 5% 5rem;
       position: relative; overflow: hidden;
     }
     #hero::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 70% 55% at 50% 35%, var(--primary-dim), transparent 65%),
         radial-gradient(ellipse 40% 30% at 20% 80%, rgba(16,185,129,0.07), transparent 60%);
@@ -72,10 +70,10 @@
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
       color: #6EE7B7; border: 1px solid rgba(16,185,129,0.4);
       background: rgba(16,185,129,0.08);
-      padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem;
+      padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.75rem;
       opacity: 0; animation: fadeUp 0.6s 0.1s forwards;
     }
     .badge-dot {
@@ -85,7 +83,7 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     h1 {
-      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-size: clamp(2.4rem, 7vw, 6.5rem);
       font-weight: 900; line-height: 1.0; letter-spacing: -0.04em;
       max-width: 13ch;
       opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
@@ -95,41 +93,42 @@
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
-      font-size: 1.15rem; color: var(--muted); max-width: 46ch; margin-top: 1.75rem; line-height: 1.75;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--muted); max-width: 44ch; margin-top: 1.5rem; line-height: 1.75;
       opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
     }
     .hero-meta {
-      display: flex; align-items: center; gap: 2rem;
-      margin-top: 2rem; flex-wrap: wrap; justify-content: center;
+      display: flex; align-items: center; gap: 1.25rem;
+      margin-top: 1.75rem; flex-wrap: wrap; justify-content: center;
       opacity: 0; animation: fadeUp 0.7s 0.5s forwards;
     }
-    .meta-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--muted); }
-    .meta-item span:first-child { font-size: 1.1rem; }
+    .meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; color: var(--muted); }
+    .meta-item span:first-child { font-size: 1rem; }
     .hero-cta-group {
-      display: flex; align-items: center; gap: 1rem;
-      margin-top: 2.75rem; flex-wrap: wrap; justify-content: center;
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-top: 2.25rem; flex-wrap: wrap; justify-content: center;
       opacity: 0; animation: fadeUp 0.7s 0.6s forwards;
     }
     .hero-cta {
       display: inline-block;
       background: var(--primary); color: #fff;
-      padding: 1rem 2.5rem; border-radius: 999px;
-      font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
+      padding: 0.9rem 2.2rem; border-radius: 999px;
+      font-weight: 700; font-size: 0.95rem; border: none; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .hero-cta:hover { transform: scale(1.04); box-shadow: 0 0 40px var(--primary-glow); }
     .hero-secondary {
       display: inline-block; color: var(--muted);
-      padding: 1rem 1.5rem; text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      padding: 0.9rem 1.25rem; text-decoration: none; font-weight: 500; font-size: 0.9rem;
       transition: color 0.2s;
     }
     .hero-secondary:hover { color: var(--text); }
     .spots-pill {
       display: inline-flex; align-items: center; gap: 0.4rem;
       background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3);
-      color: #FCA5A5; font-size: 0.78rem; font-weight: 600;
+      color: #FCA5A5; font-size: 0.75rem; font-weight: 600;
       padding: 0.35rem 0.9rem; border-radius: 999px; letter-spacing: 0.04em;
-      opacity: 0; animation: fadeUp 0.7s 0.7s forwards; margin-top: 1.5rem;
+      opacity: 0; animation: fadeUp 0.7s 0.7s forwards; margin-top: 1.25rem;
     }
     .spots-dot {
       width: 5px; height: 5px; border-radius: 50%;
@@ -139,9 +138,9 @@
 
     /* === SPEAKER === */
     #speaker {
-      padding: 6rem 6%;
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 400px 1fr; gap: 6rem; align-items: center;
+      padding: 5rem 5%;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 380px 1fr; gap: 5rem; align-items: center;
     }
     .speaker-photo-wrap { position: relative; }
     .speaker-photo-wrap::before {
@@ -155,10 +154,10 @@
       border-radius: 22px; display: block; position: relative; z-index: 1;
     }
     .speaker-badge {
-      position: absolute; bottom: 1.5rem; left: 1.5rem; z-index: 2;
-      background: rgba(8,8,8,0.88); backdrop-filter: blur(12px);
+      position: absolute; bottom: 1.25rem; left: 1.25rem; z-index: 2;
+      background: rgba(8,8,8,0.9); backdrop-filter: blur(12px);
       border: 1px solid rgba(16,185,129,0.3); border-radius: 12px;
-      padding: 0.75rem 1.1rem; display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.6rem;
     }
     .speaker-badge-dot {
       width: 8px; height: 8px; border-radius: 50%;
@@ -166,79 +165,79 @@
       animation: pulse 2s infinite; flex-shrink: 0;
     }
     .speaker-badge-text { font-size: 0.82rem; font-weight: 700; color: #ECFDF5; }
-    .speaker-badge-sub { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+    .speaker-badge-sub { font-size: 0.7rem; color: var(--muted); margin-top: 0.1rem; }
     .section-eyebrow {
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
       color: #34D399; margin-bottom: 0.75rem;
     }
     .speaker-content h2 {
-      font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 800;
-      letter-spacing: -0.03em; margin-bottom: 1.5rem; line-height: 1.1;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 1.25rem; line-height: 1.15;
     }
-    .speaker-content p { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 1rem; }
-    .speaker-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+    .speaker-content p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; margin-bottom: 0.9rem; }
+    .speaker-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
     .speaker-tag {
-      font-size: 0.8rem; font-weight: 600;
+      font-size: 0.78rem; font-weight: 600;
       background: rgba(16,185,129,0.1); color: #6EE7B7;
       border: 1px solid rgba(16,185,129,0.25);
-      padding: 0.35rem 0.9rem; border-radius: 999px;
+      padding: 0.3rem 0.85rem; border-radius: 999px;
     }
 
     /* === DETAILS === */
-    #details { padding: 6rem 6%; max-width: 1200px; margin: 0 auto; }
+    #details { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
     .section-title {
-      font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800;
-      letter-spacing: -0.03em; margin-bottom: 3rem; max-width: 20ch;
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800;
+      letter-spacing: -0.03em; margin-bottom: 2.5rem; max-width: 20ch;
     }
-    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .card {
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem;
+      border-radius: var(--radius); padding: 1.75rem;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
     }
-    .card:hover { transform: translateY(-5px); border-color: rgba(16,185,129,0.3); box-shadow: 0 8px 32px rgba(16,185,129,0.08); }
-    .card-icon { font-size: 1.8rem; margin-bottom: 1.1rem; }
-    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; letter-spacing: -0.01em; }
-    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(16,185,129,0.3); box-shadow: 0 8px 32px rgba(16,185,129,0.08); }
+    .card-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+    .card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
 
     /* === AGENDA === */
-    #agenda { padding: 5rem 6%; max-width: 1200px; margin: 0 auto; }
-    .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
-    .agenda-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    #agenda { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+    .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
+    .agenda-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
     .agenda-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1.25rem 1.5rem; background: var(--surface);
+      display: flex; align-items: flex-start; gap: 0.9rem;
+      padding: 1.1rem 1.25rem; background: var(--surface);
       border: 1px solid var(--border); border-radius: var(--radius); transition: border-color 0.2s;
     }
     .agenda-item:hover { border-color: rgba(16,185,129,0.3); }
     .agenda-num {
-      font-size: 0.7rem; font-weight: 700; color: var(--primary); background: var(--primary-dim);
-      width: 24px; height: 24px; border-radius: 50%;
+      font-size: 0.68rem; font-weight: 700; color: var(--primary); background: var(--primary-dim);
+      width: 22px; height: 22px; border-radius: 50%;
       display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem;
     }
-    .agenda-text h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
-    .agenda-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .agenda-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; }
+    .agenda-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
     .agenda-visual {
       background: linear-gradient(135deg, #111 0%, rgba(16,185,129,0.1) 100%);
-      border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem;
-      display: flex; flex-direction: column; gap: 1.5rem;
+      border: 1px solid var(--border); border-radius: 20px; padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
     }
     .tool-row {
-      display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem;
+      display: flex; align-items: center; gap: 0.9rem; padding: 0.9rem 1.1rem;
       background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 10px;
     }
-    .tool-emoji { font-size: 1.5rem; width: 36px; text-align: center; }
-    .tool-name { font-size: 0.95rem; font-weight: 600; }
-    .tool-desc { font-size: 0.8rem; color: var(--muted); }
+    .tool-emoji { font-size: 1.4rem; width: 32px; text-align: center; }
+    .tool-name { font-size: 0.9rem; font-weight: 600; }
+    .tool-desc { font-size: 0.78rem; color: var(--muted); }
     .tool-badge {
-      margin-left: auto; font-size: 0.7rem; font-weight: 600;
+      margin-left: auto; font-size: 0.68rem; font-weight: 600;
       background: var(--primary-dim); color: #6EE7B7;
-      padding: 0.25rem 0.65rem; border-radius: 999px;
+      padding: 0.2rem 0.6rem; border-radius: 999px; white-space: nowrap;
     }
 
     /* === CTA BAND === */
     #cta {
-      padding: 7rem 6%; text-align: center; background: var(--surface);
+      padding: 6rem 5%; text-align: center; background: var(--surface);
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
       position: relative; overflow: hidden;
     }
@@ -247,98 +246,108 @@
       background: radial-gradient(ellipse 60% 70% at 50% 50%, var(--primary-dim), transparent 70%);
       pointer-events: none;
     }
-    #cta h2 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; letter-spacing: -0.03em; margin-bottom: 1rem; position: relative; }
-    #cta p { font-size: 1.1rem; color: var(--muted); margin-bottom: 2.75rem; position: relative; }
+    #cta h2 {
+      font-size: clamp(1.75rem, 4vw, 3rem); font-weight: 900;
+      letter-spacing: -0.03em; margin-bottom: 1rem; position: relative;
+    }
+    #cta > p { font-size: clamp(0.9rem, 2vw, 1.05rem); color: var(--muted); margin-bottom: 2.25rem; position: relative; }
     .cta-btn {
       display: inline-block; position: relative;
       background: var(--primary); color: #fff;
-      padding: 1.1rem 3rem; border-radius: 999px;
-      font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer;
+      padding: 1rem 2.75rem; border-radius: 999px;
+      font-weight: 700; font-size: 1rem; border: none; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .cta-btn:hover { transform: scale(1.04); box-shadow: 0 0 50px var(--primary-glow); }
-    .cta-note { display: block; margin-top: 1.25rem; font-size: 0.85rem; color: var(--muted); position: relative; }
 
     /* === FOOTER === */
     footer {
-      padding: 2.5rem 6%; display: flex; align-items: center; justify-content: space-between;
-      border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--muted);
-      flex-wrap: wrap; gap: 1rem;
+      padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--muted);
+      flex-wrap: wrap; gap: 0.75rem;
     }
-    .footer-brand { font-weight: 700; color: var(--text); font-size: 0.9rem; }
+    .footer-brand { font-weight: 700; color: var(--text); font-size: 0.88rem; }
 
     /* === MODAL === */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 999;
-      background: rgba(0,0,0,0.75); backdrop-filter: blur(8px);
+      background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
       display: flex; align-items: center; justify-content: center;
-      padding: 1.5rem;
+      padding: 1rem;
       opacity: 0; pointer-events: none;
       transition: opacity 0.25s;
     }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal {
       background: #111; border: 1px solid rgba(16,185,129,0.25);
-      border-radius: 20px; padding: 2.5rem; width: 100%; max-width: 480px;
-      position: relative;
+      border-radius: 20px; padding: 2.25rem 2rem; width: 100%; max-width: 440px;
+      position: relative; text-align: center;
       transform: translateY(20px); transition: transform 0.25s;
     }
     .modal-overlay.open .modal { transform: translateY(0); }
     .modal-close {
-      position: absolute; top: 1.25rem; right: 1.25rem;
+      position: absolute; top: 1rem; right: 1rem;
       background: none; border: none; cursor: pointer;
-      color: var(--muted); font-size: 1.3rem; line-height: 1;
-      transition: color 0.2s;
+      color: var(--muted); font-size: 1.2rem; line-height: 1;
+      transition: color 0.2s; width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
     }
-    .modal-close:hover { color: var(--text); }
+    .modal-close:hover { color: var(--text); background: rgba(255,255,255,0.06); }
     .modal-eyebrow {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-      color: #34D399; margin-bottom: 0.6rem;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #34D399; margin-bottom: 0.5rem;
     }
-    .modal h3 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-    .modal-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.75rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 0.75rem; }
-    .form-group label { font-size: 0.78rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; }
+    .modal h3 { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .modal-sub { font-size: 0.84rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.65rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.65rem; text-align: left; }
+    .form-group label { font-size: 0.74rem; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; }
     .form-group input {
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 10px; padding: 0.75rem 1rem;
-      font-size: 0.95rem; color: var(--text); font-family: var(--font);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+      border-radius: 10px; padding: 0.7rem 0.9rem;
+      font-size: 0.9rem; color: var(--text); font-family: var(--font);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none; width: 100%;
     }
     .form-group input:focus { border-color: rgba(16,185,129,0.5); box-shadow: 0 0 0 3px rgba(16,185,129,0.1); }
-    .form-group input::placeholder { color: #444; }
+    .form-group input::placeholder { color: #3a3a3a; }
     .modal-submit {
       width: 100%; margin-top: 0.5rem;
       background: var(--primary); color: #fff;
-      padding: 1rem; border-radius: 999px; border: none; cursor: pointer;
-      font-size: 1rem; font-weight: 700; font-family: var(--font);
+      padding: 0.9rem; border-radius: 999px; border: none; cursor: pointer;
+      font-size: 0.95rem; font-weight: 700; font-family: var(--font);
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .modal-submit:hover { transform: scale(1.02); box-shadow: 0 0 30px var(--primary-glow); }
-    .modal-success {
-      display: none; text-align: center; padding: 1rem 0;
-    }
+    .modal-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .modal-success { display: none; text-align: center; padding: 1rem 0; }
     .modal-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
     .modal-success h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; }
-    .modal-success p { font-size: 0.9rem; color: var(--muted); }
+    .modal-success p { font-size: 0.88rem; color: var(--muted); }
 
     /* === ANIMATIONS === */
     @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
 
-    /* === RESPONSIVE === */
+    /* === RESPONSIVE — mobile-first === */
     @media (max-width: 900px) {
-      #speaker { grid-template-columns: 1fr; gap: 3rem; }
+      #speaker { grid-template-columns: 1fr; gap: 2.5rem; max-width: 500px; }
       .speaker-photo { aspect-ratio: 4/3; object-position: center 15%; }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
+      nav { padding: 0.9rem 4%; }
+      .nav-brand { font-size: 0.82rem; }
+      #hero { padding: 7rem 4% 4rem; }
+      .hero-meta { gap: 0.9rem; }
+      .meta-item { font-size: 0.8rem; }
+      #speaker, #details, #agenda, #cta, footer { padding-left: 4%; padding-right: 4%; }
       .cards { grid-template-columns: 1fr; }
-      .agenda-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .agenda-grid { grid-template-columns: 1fr; gap: 2rem; }
       .agenda-visual { order: -1; }
       footer { flex-direction: column; text-align: center; }
-      .hero-meta { gap: 1.25rem; }
       .form-row { grid-template-columns: 1fr; }
+      .modal { padding: 2rem 1.5rem; border-radius: 16px; }
+      .modal h3 { font-size: 1.2rem; }
+      #cta { padding-top: 4rem; padding-bottom: 4rem; }
     }
   </style>
 </head>
@@ -349,35 +358,35 @@
     <div class="modal">
       <button class="modal-close" id="modalClose" aria-label="Fermer">✕</button>
       <div id="modalForm">
-        <p class="modal-eyebrow">Session #1 · Val d'Europe · 10 places</p>
+        <p class="modal-eyebrow">Val d'Europe · 10 places</p>
         <h3 id="modalTitle">Je réserve ma place</h3>
-        <p class="modal-sub">Remplis le formulaire, on te recontacte sous 24h pour confirmer ta place.</p>
+        <p class="modal-sub">On revient vers toi rapidement pour confirmer.</p>
         <form id="regForm" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label for="prenom">Prénom</label>
-              <input type="text" id="prenom" name="prenom" placeholder="Marie" required>
+              <input type="text" id="prenom" name="prenom" placeholder="Marie" required autocomplete="given-name">
             </div>
             <div class="form-group">
               <label for="nom">Nom</label>
-              <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+              <input type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
             </div>
           </div>
           <div class="form-group">
-            <label for="tel">Téléphone</label>
-            <input type="tel" id="tel" name="tel" placeholder="+33 6 12 34 56 78" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required autocomplete="email">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="marie@exemple.fr" required>
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="+33 6 12 34 56 78" required autocomplete="tel">
           </div>
-          <button type="submit" class="modal-submit">Envoyer ma demande →</button>
+          <button type="submit" class="modal-submit" id="submitBtn">Envoyer ma demande →</button>
         </form>
       </div>
       <div class="modal-success" id="modalSuccess">
         <div class="success-icon">✅</div>
         <h4>Demande envoyée !</h4>
-        <p>On revient vers toi sous 24h pour confirmer ta place. À très vite !</p>
+        <p>On revient vers toi très vite. À bientôt !</p>
       </div>
     </div>
   </div>
@@ -392,11 +401,11 @@
   <section id="hero">
     <span class="hero-badge">
       <span class="badge-dot"></span>
-      Val d'Europe · Session #1 · 10 places
+      Atelier IA · Val d'Europe · 10 places
     </span>
     <h1>Maîtrise l'<span class="accent">IA</span> en une après-midi.</h1>
     <p class="hero-sub">
-      2 heures d'atelier en présentiel pour apprendre à utiliser Claude, ChatGPT et les outils IA du quotidien — sans jargon, sans slides, juste des résultats concrets.
+      2 heures d'atelier en présentiel pour apprendre à utiliser Claude Code, ChatGPT et les outils IA — sans jargon, sans slides, juste des résultats concrets.
     </p>
     <div class="hero-meta">
       <div class="meta-item"><span>📍</span><span>Val d'Europe</span></div>
@@ -417,28 +426,27 @@
   <!-- SPEAKER -->
   <section id="speaker">
     <div class="speaker-photo-wrap">
-      <img src="./photo.jpg" alt="Leopold — animateur de l'atelier IA" class="speaker-photo">
+      <img src="./photo.jpg" alt="Léopold — hôte de l'atelier IA" class="speaker-photo">
       <div class="speaker-badge">
         <div class="speaker-badge-dot"></div>
         <div>
-          <div class="speaker-badge-text">Leopold</div>
-          <div class="speaker-badge-sub">Animateur · Fondateur d'agence IA</div>
+          <div class="speaker-badge-text">Léopold</div>
+          <div class="speaker-badge-sub">Hôte · Fondateur d'agence IA</div>
         </div>
       </div>
     </div>
     <div class="speaker-content">
-      <p class="section-eyebrow">Ton animateur</p>
+      <p class="section-eyebrow">Ton hôte</p>
       <h2>Pas un cours théorique.<br>Une session avec quelqu'un qui l'utilise au quotidien.</h2>
       <p>
-        Je dirige une agence d'intégration IA. Mon métier, c'est d'aider des entrepreneurs, des agences de services et des coachs en ligne à intégrer Claude, ChatGPT et Claude Code dans leurs process — et à gagner du temps dès la première semaine.
+        Léopold dirige une agence d'intégration IA. Son métier : aider des entrepreneurs, des agences de services et des coachs en ligne à intégrer Claude Code, ChatGPT et les outils IA dans leurs process — et à gagner du temps dès la première semaine.
       </p>
       <p>
-        Cet atelier, c'est exactement ce que je fais avec mes clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets.
+        Cet atelier, c'est exactement ce qu'il fait avec ses clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets.
       </p>
       <div class="speaker-tags">
-        <span class="speaker-tag">Claude</span>
-        <span class="speaker-tag">ChatGPT</span>
         <span class="speaker-tag">Claude Code</span>
+        <span class="speaker-tag">ChatGPT</span>
         <span class="speaker-tag">Intégration IA</span>
         <span class="speaker-tag">Prompting</span>
         <span class="speaker-tag">Productivité</span>
@@ -464,7 +472,7 @@
       <div class="card">
         <div class="card-icon">🛠️</div>
         <h3>Les bons outils, les bons usages</h3>
-        <p>Claude, ChatGPT, Claude Code — on fait le tri ensemble et tu repars avec une vraie boîte à outils adaptée à ton activité.</p>
+        <p>Claude Code et ChatGPT — on va à l'essentiel et tu repars avec une boîte à outils adaptée à ton activité.</p>
       </div>
     </div>
   </section>
@@ -499,8 +507,8 @@
         <li class="agenda-item">
           <div class="agenda-num">4</div>
           <div class="agenda-text">
-            <h4>Tour des meilleurs outils IA</h4>
-            <p>Claude, ChatGPT, Claude Code… on fait le point sur ce qui vaut vraiment le coup en 2026.</p>
+            <h4>Tour des outils IA</h4>
+            <p>Claude Code et ChatGPT en détail — ce qui vaut vraiment le coup et comment les utiliser efficacement.</p>
           </div>
         </li>
         <li class="agenda-item">
@@ -513,12 +521,12 @@
       </ul>
 
       <div class="agenda-visual">
-        <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#34D399;margin-bottom:0.5rem">Les outils au programme</p>
+        <p style="font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#34D399;margin-bottom:0.25rem">Les outils au programme</p>
         <div class="tool-row">
-          <div class="tool-emoji">🔮</div>
+          <div class="tool-emoji">💻</div>
           <div>
-            <div class="tool-name">Claude</div>
-            <div class="tool-desc">Anthropic · le plus précis</div>
+            <div class="tool-name">Claude Code</div>
+            <div class="tool-desc">Créer et automatiser sans être dev</div>
           </div>
           <span class="tool-badge">⭐ Favori</span>
         </div>
@@ -530,14 +538,6 @@
           </div>
           <span class="tool-badge">Essentiel</span>
         </div>
-        <div class="tool-row">
-          <div class="tool-emoji">💻</div>
-          <div>
-            <div class="tool-name">Claude Code</div>
-            <div class="tool-desc">Coder et créer sans être dev</div>
-          </div>
-          <span class="tool-badge">Bonus</span>
-        </div>
       </div>
     </div>
   </section>
@@ -547,7 +547,6 @@
     <h2>10 places. Pas une de plus.</h2>
     <p>Format intentionnellement petit pour que tout le monde reparte avec de vraies réponses à ses vraies questions.</p>
     <button class="cta-btn" onclick="openModal()">Réserver ma place →</button>
-    <span class="cta-note">📩 On te recontacte sous 24h pour confirmer ta place</span>
   </section>
 
   <!-- FOOTER -->
@@ -561,7 +560,7 @@
     function openModal() {
       document.getElementById('modalOverlay').classList.add('open');
       document.body.style.overflow = 'hidden';
-      setTimeout(() => document.getElementById('prenom').focus(), 50);
+      setTimeout(function() { document.getElementById('prenom').focus(); }, 50);
     }
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('open');
@@ -574,23 +573,33 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeModal();
     });
+
     document.getElementById('regForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const prenom = document.getElementById('prenom').value.trim();
-      const nom    = document.getElementById('nom').value.trim();
-      const tel    = document.getElementById('tel').value.trim();
-      const email  = document.getElementById('email').value.trim();
-      if (!prenom || !nom || !tel || !email) return;
-      const subject = encodeURIComponent("Inscription AI Workshop Val d'Europe");
-      const body = encodeURIComponent(
-        "Prénom : " + prenom + "\n" +
-        "Nom : " + nom + "\n" +
-        "Téléphone : " + tel + "\n" +
-        "Email : " + email
-      );
-      window.location.href = "mailto:notleopold@pm.me?subject=" + subject + "&body=" + body;
-      document.getElementById('modalForm').style.display = 'none';
-      document.getElementById('modalSuccess').style.display = 'block';
+      var prenom = document.getElementById('prenom').value.trim();
+      var nom    = document.getElementById('nom').value.trim();
+      var email  = document.getElementById('email').value.trim();
+      var tel    = document.getElementById('tel').value.trim();
+      if (!prenom || !nom || !email || !tel) return;
+
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+
+      fetch('https://hook.eu2.make.com/ijcxq4ot19zzaux5gtk3f387ey1qpqnq', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prenom: prenom, nom: nom, email: email, telephone: tel })
+      })
+      .then(function() {
+        document.getElementById('modalForm').style.display = 'none';
+        document.getElementById('modalSuccess').style.display = 'block';
+      })
+      .catch(function() {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer ma demande →';
+        alert('Une erreur est survenue. Réessaie dans quelques instants.');
+      });
     });
   </script>
 
