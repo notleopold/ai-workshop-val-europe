@@ -10,8 +10,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6;
-           overflow-x: hidden; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
 
     :root {
       --bg: #080808; --surface: #111111;
@@ -44,7 +44,7 @@
     #hero {
       min-height: 100vh; display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center;
-      padding: 8rem 5% 5rem; position: relative; overflow: hidden;
+      padding: 8rem 5% 5rem; position: relative; overflow: clip;
     }
     #hero::before {
       content: ''; position: absolute; inset: 0;
@@ -122,7 +122,7 @@
 
     /* SPEAKER */
     #speaker {
-      padding: 5rem 5%; max-width: 1100px; margin: 0 auto;
+      padding: 3.5rem 5%; max-width: 1100px; margin: 0 auto;
       display: grid; grid-template-columns: 380px 1fr; gap: 5rem; align-items: center;
     }
     .speaker-photo-wrap { position: relative; }
@@ -163,7 +163,7 @@
     }
 
     /* DETAILS */
-    #details { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+    #details { padding: 3.5rem 5%; max-width: 1100px; margin: 0 auto; }
     .section-title {
       font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 800;
       letter-spacing: -0.03em; margin-bottom: 2.5rem; max-width: 20ch;
@@ -180,7 +180,7 @@
     .card p { font-size: 0.88rem; color: var(--muted); line-height: 1.7; }
 
     /* AGENDA */
-    #agenda { padding: 5rem 5%; max-width: 1100px; margin: 0 auto; }
+    #agenda { padding: 3.5rem 5%; max-width: 1100px; margin: 0 auto; }
     .agenda-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; margin-top: 2.5rem; }
     .agenda-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
     .agenda-item {
@@ -218,7 +218,7 @@
     #cta {
       padding: 6rem 5%; text-align: center; background: var(--surface);
       border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
+      position: relative; overflow: clip;
     }
     #cta::before {
       content: ''; position: absolute; inset: 0;
@@ -310,16 +310,18 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      #speaker { grid-template-columns: 1fr; gap: 2.5rem; max-width: 500px; }
-      .speaker-photo { aspect-ratio: 4/3; object-position: center 15%; }
+      #speaker { grid-template-columns: 1fr; gap: 2.5rem; max-width: 420px; }
+      .speaker-photo { aspect-ratio: 3/4; object-position: center top; }
     }
     @media (max-width: 640px) {
       nav { padding: 0.9rem 4%; }
       .nav-brand { font-size: 0.82rem; }
-      #hero { padding: 7rem 4% 4rem; }
+      #hero { padding: 7rem 4% 2.5rem; }
+      #speaker, #details, #agenda { padding-top: 2.5rem; padding-bottom: 2.5rem; }
       .hero-meta { gap: 0.75rem; }
       .meta-item { font-size: 0.78rem; }
       #speaker, #details, #agenda, #cta, footer { padding-left: 4%; padding-right: 4%; }
+
       .cards { grid-template-columns: 1fr; }
       .agenda-grid { grid-template-columns: 1fr; gap: 2rem; }
       .agenda-visual { order: -1; }
@@ -380,7 +382,7 @@
     </span>
     <h1>Maîtrise l'<span class="accent">IA</span> en une après-midi.</h1>
     <p class="hero-sub">
-      Que tu travailles en entreprise ou non — si tu veux utiliser l'IA dans ta vie personnelle et professionnelle, cet atelier est fait pour toi.
+      Que tu travailles en entreprise ou pas, si tu veux utiliser l'IA dans ta vie personnelle et professionnelle, cet atelier est fait pour toi.
     </p>
     <div class="hero-meta">
       <div class="meta-item"><span>📍</span><span>Val d'Europe</span></div>
@@ -414,10 +416,10 @@
       <p class="section-eyebrow">Ton hôte</p>
       <h2>Pas un cours théorique.<br>Une session avec quelqu'un qui l'utilise au quotidien.</h2>
       <p>
-        Léopold dirige une agence d'intégration IA. Son métier : aider des entrepreneurs, des agences de services et des coachs en ligne à intégrer Claude Code, ChatGPT et les outils IA dans leurs process — et à gagner du temps dès la première semaine.
+        Léopold dirige une agence d'intégration IA. Son métier : aider des entrepreneurs, des agences de services et des coachs en ligne à intégrer Claude Code, ChatGPT et les outils IA dans leurs process pour gagner du temps dès la première semaine.
       </p>
       <p>
-        Cet atelier, c'est exactement ce qu'il fait avec ses clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets — que ce soit pour ta vie perso ou ton boulot.
+        Cet atelier, c'est exactement ce qu'il fait avec ses clients, condensé en 2 heures. Pas de slides, pas de cours magistral. On ouvre les outils ensemble, on teste en live, et tu repars avec des réflexes concrets pour ta vie perso comme pour ton boulot.
       </p>
       <div class="speaker-tags">
         <span class="speaker-tag">Claude Code</span>
@@ -437,7 +439,7 @@
       <div class="card">
         <div class="card-icon">💬</div>
         <h3>Parler à l'IA comme un pro</h3>
-        <p>Apprends à formuler tes demandes pour obtenir exactement ce que tu veux — dans ta vie perso comme au boulot. Plus jamais de réponses génériques.</p>
+        <p>Apprends à formuler tes demandes pour obtenir exactement ce que tu veux, dans ta vie perso comme au boulot. Plus jamais de réponses génériques.</p>
       </div>
       <div class="card">
         <div class="card-icon">⚡</div>
@@ -447,7 +449,7 @@
       <div class="card">
         <div class="card-icon">🛠️</div>
         <h3>Les bons outils, les bons usages</h3>
-        <p>Claude Code et ChatGPT — on va à l'essentiel et tu repars avec une boîte à outils adaptée à ta situation, perso ou pro.</p>
+        <p>Claude Code et ChatGPT : on va à l'essentiel et tu repars avec une boîte à outils adaptée à ta situation, perso ou pro.</p>
       </div>
     </div>
   </section>
@@ -462,7 +464,7 @@
           <div class="agenda-num">1</div>
           <div class="agenda-text">
             <h4>Introduction à l'IA générative</h4>
-            <p>Comment ça marche vraiment, sans bullshit. Ce que ça peut faire dans ta vie — et ce que ça ne peut pas.</p>
+            <p>Comment ça marche vraiment, sans bullshit. Ce que ça peut faire dans ta vie et ce que ça ne peut pas.</p>
           </div>
         </li>
         <li class="agenda-item">
@@ -476,14 +478,14 @@
           <div class="agenda-num">3</div>
           <div class="agenda-text">
             <h4>Cas pratiques sur mesure</h4>
-            <p>Tu arrives avec tes vraies tâches — perso ou pro. On les automatise ou on les accélère ensemble.</p>
+            <p>Tu arrives avec tes vraies tâches, perso ou pro. On les automatise ou on les accélère ensemble.</p>
           </div>
         </li>
         <li class="agenda-item">
           <div class="agenda-num">4</div>
           <div class="agenda-text">
             <h4>Tour des outils IA</h4>
-            <p>Claude Code et ChatGPT en détail — ce qui vaut vraiment le coup et comment les utiliser efficacement.</p>
+            <p>Claude Code et ChatGPT en détail : ce qui vaut vraiment le coup et comment les utiliser efficacement.</p>
           </div>
         </li>
         <li class="agenda-item">
@@ -535,14 +537,21 @@
     var STRIPE_URL = 'https://buy.stripe.com/6oU7sM3vVcgGbFBbn5gbm0z';
     var WEBHOOK_URL = 'https://hook.eu2.make.com/ijcxq4ot19zzaux5gtk3f387ey1qpqnq';
 
+    var _scrollY = 0;
     function openModal() {
+      _scrollY = window.scrollY || window.pageYOffset;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + _scrollY + 'px';
+      document.body.style.width = '100%';
       document.getElementById('modalOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
       setTimeout(function() { document.getElementById('prenom').focus(); }, 50);
     }
     function closeModal() {
       document.getElementById('modalOverlay').classList.remove('open');
-      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, _scrollY);
     }
     document.getElementById('modalClose').addEventListener('click', closeModal);
     document.getElementById('modalOverlay').addEventListener('click', function(e) {
@@ -566,7 +575,7 @@
 
       fetch(WEBHOOK_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify({ prenom: prenom, nom: nom, email: email, telephone: tel })
       })
       .finally(function() {
